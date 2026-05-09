@@ -9,7 +9,7 @@ var colors = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "bro
 app.use(express.static("game"));
 var players = {};
 io.on("connection", socket => {
-    var color = colors.splice(Math.floor(Math.random() * availableColors.length), 1)[0];
+    var color = colors.splice(Math.floor(Math.random() * colors.length), 1)[0];
     console.log("Joined: " + socket.id);
     console.log(players[socket.id]);
     players[socket.id] = {
@@ -23,7 +23,7 @@ io.on("connection", socket => {
         players[socket.id].y += data.dy;
     });
     socket.on("disconnect", () => {
-	colors.push();(players[socket.id].color);
+	colors.push()(players[socket.id].color);
         delete players[socket.id];
 	console.log("Left: " + socket.id);
     });
