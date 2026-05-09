@@ -30,7 +30,7 @@ io.on("connection", socket => {
 });
 setInterval(() => {
     io.emit("state", players);
-}, 1000 / 30);
+}, 1000 / 15);
 server.listen(PORT, () => {
     console.log("Server on port: " + PORT);
 });
