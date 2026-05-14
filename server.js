@@ -23,9 +23,11 @@ io.on("connection", socket => {
         players[socket.id].y += data.dy;
     });
     socket.on("disconnect", () => {
-	colors.push()(players[socket.id].color);
+		if(player){
+	colors.push(players[socket.id].color);
         delete players[socket.id];
 	console.log("Left: " + socket.id);
+		}
     });
 });
 setInterval(() => {
